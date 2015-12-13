@@ -90,7 +90,7 @@ public class TestEmp {
 	@Test
 	public void delete() {
 		Session session = HibernateUtil.getSession();
-		Emp emp = (Emp)session.get(Emp.class, 301);
+		Emp emp = (Emp)session.get(Emp.class, 302);
 		Transaction ts = session.beginTransaction();
 		try {
 			session.delete(emp);
