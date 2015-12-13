@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="HibernateDeom"
+  id="myeclipse.1449663214913"
+  context-root="/HibernateDeom"
+  j2ee-spec="5.0"
+  archive="HibernateDeom.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+

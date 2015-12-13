@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+          "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+	<!-- 配置实体类和表的关系 -->
+	<class name="com.kelvin.entity.Emp" table="emp">
+		
+		<!-- 配置主键属性和字段的关系 -->
+		<!-- 适用ORACLE数据库 -->
+		<id	name="id" type="java.lang.Integer" column="id">
+			<!-- 用来指明主键的生成方式  --> 
+			
+			<!-- 适用ORACLE，指定用于生成主键的sequence -->
+			<!--<generator class="sequence">
+				<param name="sequence">emp_seq</param>
+			</generator>-->
+			
+			<!-- 适用MySQL，采用数据库提供的主键生成机制生成主键 -->
+			<generator class="identity"></generator>
+		</id>
+		
+		<!-- 配置实体类中属性与表中字段的关系 -->
+		<property name="name" type="java.lang.String" column="name"></property>
+		<property name="age" type="java.lang.Integer" column="age"></property>
+		<property name="salary" type="java.lang.Double" column="salary"></property>
+		<property name="birthday" type="java.sql.Date" column="birthday"></property>
+		<property name="lastLoginTime" type="java.sql.Timestamp" column="last_login_time"></property>
+		
+	</class>
+
+</hibernate-mapping>
