@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+          "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+	<class name="com.kelvin.entity.Service" table="service">
+		<!-- 配置主键属性和字段的关系 -->
+		<id name="id" type="integer" column="id"> 
+			<!-- 用来指明主键的生成方式  --> 
+			
+			<!-- 适用ORACLE，指定用于生成主键的sequence -->
+			<!--<generator class="sequence">
+				<param name="sequence">service_seq</param>
+			</generator>-->
+			
+			<!-- 适用MySQL，采用数据库提供的主键生成机制生成主键 -->
+			<generator class="identity"></generator>
+		</id>
+		
+		<!-- 配置实体类中属性与表中字段的关系 -->
+		<property name="accountId" type="integer" column="account_id"></property>
+		<property name="unixHost" type="string" column="unix_host"></property>
+		<property name="osUserName" type="string" column="os_username"></property>
+		<property name="loginPassword" type="string" column="login_passwd"></property>
+		<property name="status" type="string" column="status"></property>
+		<property name="createDate" type="date" column="create_date"></property>
+		<property name="pauseDate" type="date" column="pause_date"></property>
+		<property name="closeDate" type="date" column="close_date"></property>
+		<property name="costId" type="integer" column="cost_id"></property>
+	</class>
+
+</hibernate-mapping>

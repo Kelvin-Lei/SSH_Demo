@@ -24,6 +24,8 @@
 	    
 	    <!-- 声明映射关系文件 -->
 	    <mapping resource="com/kelvin/entity/Emp.hbm.xml" />
+	    <mapping resource="com/kelvin/entity/Account.hbm.xml"/>
+	    <mapping resource="com/kelvin/entity/Service.hbm.xml"/>
     </session-factory>
 
 </hibernate-configuration>
