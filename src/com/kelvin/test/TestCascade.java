@@ -3,8 +3,6 @@ package com.kelvin.test;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.servlet.jsp.tagext.TryCatchFinally;
-
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -82,6 +80,25 @@ public class TestCascade {
 		Transaction ts = session.beginTransaction();
 		try {
 			session.update(account);
+			ts.commit();
+		} catch (HibernateException e) {
+			e.printStackTrace();
+			ts.rollback();
+		} finally {
+			session.close();
+		}
+	}
+	
+	/**
+	 * 级联删除
+	 */
+	@Test
+	public void test3() {
+		Session session = HibernateUtil.getSession();
+		Account account = (Account)session.get(Account.class, 6);
+		Transaction ts = session.beginTransaction();
+		try {
+			session.delete(account);
 			ts.commit();
 		} catch (HibernateException e) {
 			e.printStackTrace();

@@ -43,7 +43,9 @@
 		<!-- 通过配置追加 lazy="false"取消延迟加载 -->
 		<!-- 通过配置追加 fetch="join"以join方式抓取数据 -->
 		<!-- 通过配置追加 cascade="save-update"用于支持级联添加/修改 -->
-		<set name="services" lazy="false" fetch="join" cascade="save-update">
+		<!-- 通过配置追加 cascade="delete"用于支持级联删除 -->
+		<!-- 通过配置追加 cascade="all" inverse="true"用于全面支持级联添加、修改和删除 -->
+		<set name="services" lazy="false" fetch="join" cascade="all" inverse="true">
 			<!-- 用于指定关联条件，写关联条件的外键字段 -->
 			<key column="account_id"></key>
 			<!-- 用于指定采用哪种关系，加载哪方数据 -->
