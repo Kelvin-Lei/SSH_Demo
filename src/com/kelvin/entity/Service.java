@@ -5,7 +5,7 @@ import java.sql.Date;
 public class Service {
 
 	private Integer id;
-	private Integer accountId;
+	//private Integer accountId;
 	private String unixHost;
 	private String osUserName;
 	private String loginPassword;
@@ -15,18 +15,27 @@ public class Service {
 	private Date closeDate;
 	private Integer costId;
 	
+	//追加属性，用于封装对应的Account记录
+	private Account account;
+	
+	public Account getAccount() {
+		return account;
+	}
+	public void setAccount(Account account) {
+		this.account = account;
+	}
 	public Integer getId() {
 		return id;
 	}
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public Integer getAccountId() {
+	/*public Integer getAccountId() {
 		return accountId;
 	}
 	public void setAccountId(Integer accountId) {
 		this.accountId = accountId;
-	}
+	}*/
 	public String getUnixHost() {
 		return unixHost;
 	}

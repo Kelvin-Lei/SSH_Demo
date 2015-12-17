@@ -20,7 +20,7 @@
 	    <property name="show_sql">true</property>
 	    
 	    <!-- 将SQL输出时是否格式化 -->
-	    <property name="format_sql">true</property>
+	    <property name="format_sql">false</property>
 	    
 	    <!-- 声明映射关系文件 -->
 	    <mapping resource="com/kelvin/entity/Emp.hbm.xml" />
