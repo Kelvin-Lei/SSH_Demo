@@ -5,10 +5,7 @@
 <hibernate-mapping>
 
 	<!-- 配置实体类和表的关系 -->
-	<class name="com.kelvin.entity.Emp" table="emp">
-	
-		<!-- 开启二级缓存，指定二级缓存策略,可以用region属性指定自己的缓存设置 -->
-		<cache usage="read-only"/>
+	<class name="org.kelvin.entity.Cost" table="cost">
 		
 		<!-- 配置主键属性和字段的关系 -->
 		<id	name="id" type="integer" column="id">
@@ -16,7 +13,7 @@
 			
 			<!-- 适用ORACLE，指定用于生成主键的sequence -->
 			<!--<generator class="sequence">
-				<param name="sequence">emp_seq</param>
+				<param name="sequence">cost_seq</param>
 			</generator>-->
 			
 			<!-- 适用MySQL，采用数据库提供的主键生成机制生成主键 -->
@@ -25,11 +22,14 @@
 		
 		<!-- 配置实体类中属性与表中字段的关系 -->
 		<property name="name" type="string" column="name"></property>
-		<property name="age" type="integer" column="age"></property>
-		<property name="salary" type="double" column="salary"></property>
-		<property name="birthday" type="date" column="birthday"></property>
-		<property name="lastLoginTime" type="timestamp" column="last_login_time"></property>
-		<property name="marry" type="yes_no" column="marry"></property>
+		<property name="baseDuration" type="integer" column="base_duration"></property>
+		<property name="baseCost" type="double" column="base_cost"></property>
+		<property name="unitCost" type="double" column="unit_cost"></property>
+		<property name="status" type="string" column="status"></property>
+		<property name="descr" type="string" column="descr"></property>
+		<property name="createDate" type="date" column="create_date"></property>
+		<property name="startDate" type="date" column="start_date"></property>
+		<property name="costType" type="string" column="cost_type"></property>
 		
 	</class>
 
