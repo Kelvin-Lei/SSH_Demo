@@ -27,6 +27,9 @@
 	    <!-- 指定所采用的二级缓存驱动类 -->
 	    <property name="hibernate.cache.provider_class">org.hibernate.cache.EhCacheProvider</property>
 	    
+	    <!-- 开启查询缓存 -->
+	    <property name="hibernate.cache.use_query_cache">true</property>
+	    
 	    <!-- 声明映射关系文件 -->
 	    <mapping resource="com/kelvin/entity/Emp.hbm.xml" />
 	    <mapping resource="com/kelvin/entity/Account.hbm.xml"/>
