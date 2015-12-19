@@ -22,6 +22,16 @@ public class HibernateUtil {
 		return sessionFactory.openSession();
 	}
 	
+	/**
+	 * 二级缓存是SessionFactory级缓存，由SessionFactory负责管理；
+	 * 即需要获取到SessionFactory才能管理二级缓存
+	 * 
+	 * 返回SessionFactory
+	 */
+	public static SessionFactory getSessionFactory() {
+		return sessionFactory;
+	}
+	
 	public static void main(String[] args) {
 		System.out.println(getSession());
 	}

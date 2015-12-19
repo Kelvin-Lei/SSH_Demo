@@ -6,6 +6,9 @@
 
 	<!-- 配置实体类和表的关系 -->
 	<class name="com.kelvin.entity.Emp" table="emp">
+	
+		<!-- 开启二级缓存，指定二级缓存策略,可以用region属性指定自己的缓存设置 -->
+		<cache usage="read-only"/>
 		
 		<!-- 配置主键属性和字段的关系 -->
 		<id	name="id" type="integer" column="id">
