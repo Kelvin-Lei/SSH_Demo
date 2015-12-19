@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-module
   type="WEB"
-  name="HibernateDeom"
-  id="myeclipse.1449663214913"
-  context-root="/HibernateDeom"
+  name="SpringStruts2_Demo"
+  id="myeclipse.1450535512405"
+  context-root="/SpringStruts2_Demo"
   j2ee-spec="5.0"
-  archive="HibernateDeom.war">
+  archive="SpringStruts2_Demo.war">
   <attributes>
     <attribute name="webrootdir" value="WebRoot" />
   </attributes>
