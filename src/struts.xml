@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" 
+						"http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<!-- 公共包，封闭了通用的拦截器、通用result -->
+	<package name="webapp" extends="json-default">
+		<interceptors>
+			
+			<!-- 异常外理拦截器 -->
+			<interceptor name="exceptionInterceptor" class="com.kelvin.interceptor.ExceptionInterceptor"></interceptor>
+			
+			<!-- 拦截器栈 -->
+			<interceptor-stack name="webappStack">
+				<interceptor-ref name="exceptionInterceptor"></interceptor-ref>
+				<!-- 不要丢掉默认的拦截器栈，里面有很多Struts2依赖的拦截器 -->
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+			</interceptor-stack>
+			
+		</interceptors>
+		
+		<!-- 设置action默认引用的拦截器 -->
+		<default-interceptor-ref name="webappStack"></default-interceptor-ref>
+		
+		<!-- 全局result，包下所有的action都可以共用 -->
+		<global-results>
+			<!-- 跳转到错误页面的result -->
+			<result name="error">/WEB-INF/main/error.jsp</result>
+		</global-results>
+	</package>
+
+	<package name="cost" namespace="/cost" extends="webapp">
+		<!-- 由于使用Spring来管理Action，因此需要通过Spring容器来创建Action，
+			   因此class属性指定的是组件的ID；
+		-->
+		<action name="findCost" class="findCostAction" method="load">
+			<!-- 注入页容量 -->
+			<param name="pageSize">3</param>
+			<result name="success">/WEB-INF/cost/find_cost.jsp</result>
+		</action>
+		
+		<!-- 打开修改页面 -->
+		<action name="toUpdateCost" class="toUpdateCostAction" method="load">
+			<result name="success">/WEB-INF/cost/update_cost.jsp</result>
+		</action>
+		
+		<!-- 修改保存 -->
+		<action name="updateCost" class="updateCostAction" method="update">
+			<result name="success" type="redirectAction">findCost</result>
+		</action>
+		
+		<!-- 打开新增页面 -->
+		<action name="toAddCost">
+			<result name="success">/WEB-INF/cost/add_cost.jsp</result>
+		</action>
+		
+		<!-- 新增保存 -->
+		<action name="addCost" class="addCostAction" method="add">
+			<result name="success" type="redirectAction">findCost</result>
+		</action>
+		
+		<!-- 删除 -->
+		<action name="deleteCost" class="deleteCostAction" method="delete">
+			<result name="success" type="redirectAction">findCost</result>
+		</action>
+	</package>
+
+</struts>    

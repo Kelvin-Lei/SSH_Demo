@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Struts2Diagram version="2.0">
+  <package name="cost" location="10,10" size="225,108">
+    <action name="findCost" location="65,57" size="150,41">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="find_cost.jsp" />
+      </result>
+    </action>
+  </package>
+  <webResource name="find_cost.jsp" path="/WEB-INF/cost/find_cost.jsp" location="350,50" size="150,55" />
+</Struts2Diagram>
+

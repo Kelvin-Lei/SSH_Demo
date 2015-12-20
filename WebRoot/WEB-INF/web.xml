@@ -7,4 +7,40 @@
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
+  
+  <!-- 配置listener，在容器启动时自动加载Spring -->
+  <listener>
+	<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
+  <context-param>
+	<param-name>contextConfigLocation</param-name>
+	<param-value>classpath:applicationContext.xml</param-value>
+  </context-param>
+  
+  <!-- 配置过滤器，以保证在视图session是开启的；
+  	       该过滤器必须在Struts2前端控制器之前配置才有效
+  -->
+  <filter>
+  	<filter-name>OpenSessionInView</filter-name>
+  	<filter-class>
+  		org.springframework.orm.hibernate3.support.OpenSessionInViewFilter
+  	</filter-class>
+  </filter>
+  <filter-mapping>
+  	<filter-name>OpenSessionInView</filter-name>
+  	<url-pattern>/*</url-pattern>
+  </filter-mapping>
+  
+  <!-- 配置Struts2前端控制器 -->
+  <filter>
+  	<filter-name>struts2</filter-name>
+  	<filter-class>
+  		org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter
+  	</filter-class>
+  </filter>
+  <filter-mapping>
+  	<filter-name>struts2</filter-name>
+  	<url-pattern>/*</url-pattern>
+  </filter-mapping>
+  
 </web-app>

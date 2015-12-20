@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-module
   type="WEB"
-  name="HibernateDeom"
-  id="myeclipse.1449663214913"
-  context-root="/HibernateDeom"
+  name="SSH_Demo"
+  id="myeclipse.1450587089974"
+  context-root="/SSH_Demo"
   j2ee-spec="5.0"
-  archive="HibernateDeom.war">
+  archive="SSH_Demo.war">
   <attributes>
     <attribute name="webrootdir" value="WebRoot" />
   </attributes>
